@@ -8,8 +8,10 @@ import { addDays,getToday } from '../util/addDate';
 
 const Schedule = ({show,setShow}) => {
 
+  // ref used to track the clicked portion of the screen
   const overlayRef=useRef() 
   
+  //closed the modal 
   const close=()=>{
     setShow(false)
   }
@@ -30,6 +32,7 @@ const Schedule = ({show,setShow}) => {
   const[formState,setFormState]=useState(initialState)
   const{hour,min,am_pm,duration}=formState
 
+  // used to handle all inputs
   const handleChange=(e)=>{    
     const{value,name}=e.target
     setFormState({
@@ -37,12 +40,14 @@ const Schedule = ({show,setShow}) => {
     })
   }
 
+  // states to manage the selected, success and error messages
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [dateError, setDateError] = useState("");  
   const[error,setError]=useState(false)
   const [dateSuccessMessage,setDateSuccessMessage]=useState('')
   const[status,setStatus]=useState(false)
 
+  // handles validation of the selected date
   const validateDate=(n)=>{
     let chosendate=getToday(n)
     let fivesAhead = addDays(5);
@@ -58,17 +63,19 @@ const Schedule = ({show,setShow}) => {
     }
   }
  
-
+  // monitors the selected date for changes
   useEffect(() => {
    validateDate(selectedDate)
   }, [selectedDate]); 
 
+  // clears all error when page loads
   useEffect(() => {
     setDateError("");   
      setError(false)
   }, []);
  
 
+  // handles the final booking
   const handleBooking=()=>{    
     let chosendate=getToday(selectedDate)
     let today=getToday(new Date())

@@ -5,16 +5,20 @@ import { useSelector, useDispatch } from "react-redux";
 import Schedule from "../components/Schedule";
 
 const DashBoard = () => {  
+  // get all the workstations and get the selected workstation from state
   const dispatch = useDispatch();
   const { stations } = useSelector((state) => state.workstations);
   const { current } = useSelector((state) => state.workstations);
 
+  // state defined to control modal display
   const[show,setShow]=useState(false)
 
+  // fetch all workstations on payload
   useEffect(() => {
     dispatch(fetchAll());
   },[dispatch]); 
  
+  // handles opening the modal on reservation button click
   const handleSchedule=()=>{
     setShow(true)
   }
