@@ -18,7 +18,7 @@ const WorkStation = ({workstation}) => {
         <span className='text-xs font-normal group-hover:text-white'>{name}</span>
 
         <span className="flex h-3 w-3 absolute top-0 right-0 mt-1 mr-1">
-  <span className={`${reserved ? 'animate-ping' : ''}  absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75`}></span>
+  <span className={`${reserved ? '' : 'animate-ping'}  absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75`}></span>
   <span className={`relative inline-flex rounded-full h-3 w-3 ${reserved ? 'bg-red-500':' bg-green-500'}`}></span>
 </span>
 

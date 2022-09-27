@@ -54,7 +54,7 @@ const DashBoard = () => {
                 <span className={`${current?.reserved ?'flex h-3 w-3':'flex h-3 w-3'} absolute right-2`}>
             <span
               className={`${
-                current?.reserved ? "animate-ping" : ""
+                current?.reserved ? "" : "animate-ping"
               }  absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75`}
             ></span>
             <span
